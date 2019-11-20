@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('bintang', function () {
+Route::get('bombom', function () {
     return view('bintang');
 });
 
