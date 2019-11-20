@@ -15,7 +15,11 @@ Route::get('/', function () {
     return view('home');
 });
 
+<<<<<<< HEAD
 Route::get('whois', function () {
+=======
+Route::get('bombom', function () {
+>>>>>>> 3d2d450a3ba192701a10c2af7857f6fccb5a99d8
     return view('bintang');
 });
 
