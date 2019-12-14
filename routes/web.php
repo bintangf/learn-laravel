@@ -35,8 +35,8 @@ Route::get('sendemail', function () {
   );
 
   Mail::send('emails.welcome', $data, function ($message) {
-    $message->from('Bintang.muhammad@binus.ac.id', 'Learning Laravel');
-    $message->to('binusmalang@yopmail.com')->subject('Learning Laravel test email');
+    $message->from('dexitdmc@gmail.com', 'Siapa Hayo?');
+    $message->to('dexit@yopmail.com')->subject('Tes Kirim Emails!');
   });
 
   return "Your email has been sent successfully";
