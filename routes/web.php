@@ -10,15 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('bintang', function () {
-    return view('bintang');
-});
 
 Route::get('/', function () {
     return view('home');
 });
 
-Route::get('master', 'PagesController@master');
 Route::get('about', 'PagesController@about');
 
 Route::get('/contact', 'TicketsController@create');
@@ -28,19 +24,6 @@ Route::get('/ticket/{slug?}', 'TicketsController@show');
 Route::get('/ticket/{slug?}/edit','TicketsController@edit');
 Route::post('/ticket/{slug?}/edit','TicketsController@update');
 Route::post('/ticket/{slug?}/delete','TicketsController@destroy');
-
-Route::get('sendemail', function () {
-  $data = array(
-    'name' => "Learning Laravel",
-  );
-
-  Mail::send('emails.welcome', $data, function ($message) {
-    $message->from('dexitdmc@gmail.com', 'Siapa Hayo?');
-    $message->to('dexit@yopmail.com')->subject('Tes Kirim Emails!');
-  });
-
-  return "Your email has been sent successfully";
-});
 
 Route::post('/comment', 'CommentsController@newComment');
 
