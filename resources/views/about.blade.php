@@ -22,7 +22,13 @@
                       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
                       culpa qui officia deserunt mollit anim id est laborum.
                     </p>
-                    <a type="button" href="{{ url('/contact') }}" class="btn btn-info">Info Pemesanan</a>
+                    @guest
+                      <a type="button" href="{{ route('register') }}" class="btn btn-info">Register</a>
+                      <a>  Or  </a>
+                      <a type="button" href="{{ route('login') }}" class="btn btn-info">Login</a>
+                    @else
+                      <a type="button" href="{{ url('/contact') }}" class="btn btn-info">Info Pemesanan</a>
+                    @endguest
                 </div>
             </div>
         </div>

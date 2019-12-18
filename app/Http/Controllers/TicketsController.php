@@ -29,7 +29,7 @@ class TicketsController extends Controller
     );
 
     Mail::send('emails.ticket', $data, function ($message) {
-      $message->from('dexitdmc@gmail.com', 'Siapa Hayo?');
+      $message->from('AuplasWebSales@gmail.com', 'Auplas Web Sales');
       $message->to('dexit@yopmail.com')->subject('There is a new ticket!');
     });
 

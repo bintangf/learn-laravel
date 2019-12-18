@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 </head>
 <body>
-<h2>Learning Laravel!</h2>
+<h2>New Ticket From {{ Auth::user()->name }}!</h2>
 <div>
-You have a new ticket. The ticket id is {!! $ticket !!}!
+You have a new ticket from {{ Auth::user()->name }}. The ticket id is {!! $ticket !!}!
 </div>
 </body>
 </html>

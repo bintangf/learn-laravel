@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Submit a new ticket</div>
+                <div class="card-header">Submit a new ticket, {{ Auth::user()->name }}</div>
 
                 <div class="card-body">
                   <form class="form-horizontal" method="post">
