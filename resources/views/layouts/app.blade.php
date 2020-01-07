@@ -15,7 +15,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-  
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -62,6 +62,9 @@
                               <a class="nav-link" href="{{ url('/about') }}">About</a>
                             </li>
                             <li class="nav-item">
+                              <a class="nav-link" href="{{ url('/order') }}">Order</a>
+                            </li>
+                            <li class="nav-item">
                               <a class="nav-link" href="{{ url('/contact') }}">Contact</a>
                             </li>
                             <li class="nav-item dropdown">
@@ -91,5 +94,6 @@
             @yield('content')
         </main>
     </div>
+
 </body>
 </html>

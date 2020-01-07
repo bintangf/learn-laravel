@@ -37,7 +37,11 @@
             <div class="card">
       			   @foreach($comments as $comment)
       					<div class="list-group list-group-flush">
-      						<div class="list-group-item">
+                  @if($comment->user_id > '1')
+                  <div class="list-group-item border">
+                  @else
+      						<div class="list-group-item border active text-right">
+                  @endif
       							{!! $comment->content !!}
       						</div>
       					</div>
@@ -57,6 +61,7 @@
       							@endif
       							<input type="hidden" name="_token" value="{!! csrf_token() !!}">
       							<input type="hidden" name="post_id" value="{!! $ticket->id !!}">
+                    <input type="hidden" id="user_id" placeholder = "user_id" name = "user_id" value="{{ Auth::user()->id }}">
       							<fieldset>
       								<legend>Reply</legend>
       								<div class="form-group">
