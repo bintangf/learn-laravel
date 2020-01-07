@@ -1,5 +1,5 @@
 @extends('master')
-@section('title', 'View all Tickets')
+@section('title', 'View all order')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -9,7 +9,7 @@
                 <div class="card-body">
                   <div class = "panel panel-default">
         						<div class = "panel-heading">
-        							<h2> Tickets </h2>
+        							<h2> List Orders </h2>
         						</div>
         						@if (session('status'))
         						<div class="alert alert-success">
@@ -17,7 +17,7 @@
         						</div>
         						@endif
         						@if ($tickets->isEmpty())
-        						<p> There is no ticket.</p>
+        						<p> There is no order.</p>
         						@else
         						<table class = "table">
         							<thead>
@@ -34,7 +34,7 @@
         								<td>
         								  <a href="{!! action('TicketsController@show', $ticket->slug) !!}">{!! $ticket->title !!} </a>
         								</td>
-        								<td>{!! $ticket->status ? 'Pending' : 'Answered' !!}</td>
+        								<td>{!! $ticket->status ? 'Negosiasi Order' : 'Order diproses' !!}</td>
         							  </tr>
         							  @endforeach
 

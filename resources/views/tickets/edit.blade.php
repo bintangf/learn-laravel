@@ -1,5 +1,5 @@
 @extends('master')
-@section('title', 'Edit a ticket')
+@section('title', 'Edit a order')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -36,12 +36,12 @@
         							</div>
         							<div class="form-group">
         								<label>
-        									<input type="checkbox" name="status" {!! $ticket->status ? "":"checked" !!}> Close this ticket?
+        									<input type="checkbox" name="status" {!! $ticket->status ? "":"checked" !!}> process this order?
         								</label>
         							</div>
         							<div class="form-group">
         								<div class="col-lg-14 col-lg-offset-14">
-        									<button class="btn btn-outline-primary">Cancel</button>
+                          <a type="button" class="btn btn-outline-primary" href="{{ URL::previous() }}">Cancel</a>
         									<button type="submit" class="btn btn-primary">Update</button>
         								</div>
         							</div>

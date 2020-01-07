@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\TicketFormRequest;
 use App\Ticket;
 use Illuminate\Support\Facades\Mail;
+use Alert;
 
 class TicketsController extends Controller
 {
@@ -29,11 +30,11 @@ class TicketsController extends Controller
     );
 
     Mail::send('emails.ticket', $data, function ($message) {
-      $message->from('AuplasWebSales@gmail.com', 'Auplas Web Sales');
-      $message->to('dexit@yopmail.com')->subject('There is a new ticket!');
+      $message->from('adminauplas@yopmail.com', 'Auplas Web Sales');
+      $message->to('salesauplas@yopmail.com')->subject('There is a new order!');
     });
 
-    return redirect('/contact')->with('status', 'Your ticket has been created! Its unique id is: ' . $slug);
+    return redirect('/contact')->with('status', 'new order has been created! Its unique id is: ' . $slug);
 
     }
 
@@ -68,14 +69,14 @@ class TicketsController extends Controller
             $ticket->status = 1;
         }
         $ticket->save();
-        return redirect(action('TicketsController@edit', $ticket->slug))->with('status', 'The ticket ' . $slug . ' has been updated!');
+        return redirect(action('TicketsController@edit', $ticket->slug))->with('status', 'The order ' . $slug . ' has been updated!');
     }
 
     public function destroy($slug)
     {
       $ticket = Ticket::whereSlug($slug)->firstOrFail();
       $ticket->delete();
-      return redirect('/tickets')->with('status', 'The ticket '.$slug.' has been deleted!');
+      return redirect('/order')->with('status', 'The order '.$slug.' has been deleted!');
     }
 
 }

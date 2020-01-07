@@ -1,11 +1,11 @@
 @extends('master')
-@section('title', 'Create a ticket')
+@section('title', 'Create a order')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Submit a new ticket, {{ Auth::user()->name }}</div>
+                <div class="card-header">Submit a new order, {{ Auth::user()->name }}</div>
 
                 <div class="card-body">
                   <form class="form-horizontal" method="post">
@@ -33,7 +33,7 @@
                   </div>
                   <div class = "form-group">
                       <div class = "col-lg-14 col-lg-offset-14">
-                          <button class = "btn btn-outline-primary">Cancel</button>
+                          <a type="button" class="btn btn-outline-primary" href="{{ URL::previous() }}">Cancel</a>
                           <button type = "submit" class = "btn btn-primary">Submit</button>
                       </div>
                   </div>

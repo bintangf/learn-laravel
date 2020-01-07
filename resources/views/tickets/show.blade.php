@@ -1,26 +1,33 @@
 @extends('master')
-@section('title', 'View a ticket')
+@section('title', 'View a order')
 @section('content')
+
+<!-- Sweet Alert -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
         					<h2 class="header">{!! $ticket->title !!}</h2>
-        					<p> <strong>Status</strong>: {!! $ticket->status ? 'Pending' : 'Answered' !!}</p>
+        					<p> <strong>Status</strong>: {!! $ticket->status ? 'Negosiasi Order' : 'Order diproses' !!}</p>
         					<p> {!! $ticket->content !!} </p>
 
-                  <div class="btn-group" role="group" aria-label="Basic example">
-          					<a type="button" href="{!! action('TicketsController@edit', $ticket->slug) !!}" class="btn btn-info">Edit</a>
-          					<form method="post" action="{!! action('TicketsController@destroy', $ticket->slug) !!}">
-          						<input type="hidden" name="_token" value="{!! csrf_token() !!}">
-          						<div class="form-group">
-          							<div>
-          								<button type="submit" class="btn btn-warning">Delete</button>
-          							</div>
-          						</div>
-          					</form>
-                  </div>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <p>
+                        <a type="button" href="{!! action('TicketsController@edit', $ticket->slug) !!}" class="m-1 btn btn-info">Edit</a>
+                      </p>
+            					<form method="post" action="{!! action('TicketsController@destroy', $ticket->slug) !!}">
+            						<input type="hidden" name="_token" value="{!! csrf_token() !!}">
+            						<div class="form-group">
+            							<div>
+            								<button type="submit" onclick="return confirm('Apakah anda yakin?')" class="m-1 btn btn-warning">Delete</button>
+            							</div>
+            						</div>
+            					</form>
+                    </div>
 
                 </div>
             </div>
@@ -60,7 +67,7 @@
       								</div>
       								<div class="form-group">
       									<div class="col-lg-14 col-lg-offset-2">
-      										<button type="reset" class="btn btn-outline-primary">Cancel</button>
+      										<a type="button" class="btn btn-outline-primary" href="{{ URL::previous() }}">Cancel</a>
       										<button type="submit" class="btn btn-primary">Post</button>
       									</div>
       								</div>
