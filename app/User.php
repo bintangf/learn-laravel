@@ -53,12 +53,13 @@ class User extends Authenticatable
     /*
     * Method untuk mengecek apakah user yang sedang login punya hak akses untuk mengakses page sesuai rolenya
     */
-    public function hasRole($roleName)
+    public function hasRole()
     {
         foreach ($this->roles as $role)
         {
-            if ($role->role_name === $roleName) return true;
+            if ($role->role_name === 'admin') return true;
         }
             return false;
     }
+
 }

@@ -64,6 +64,11 @@
                             <li class="nav-item">
                               <a class="nav-link" href="{{ url('/order') }}">Order</a>
                             </li>
+                            @if(Auth::user()->hasRole())
+                            <li class="nav-item">
+                              <a class="nav-link" href="{{ url('/admin') }}">List User</a>
+                            </li>
+                            @endif
                             <li class="nav-item">
                               <a class="nav-link" href="{{ url('/contact') }}">Contact</a>
                             </li>
