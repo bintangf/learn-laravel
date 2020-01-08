@@ -16,9 +16,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin']], funct
 
 });
 // Route untuk user yang member
-Route::group(['prefix' => 'user', 'middleware' => ['auth','role:user']], function(){
+Route::group(['prefix' => 'member', 'middleware' => ['auth','role:member']], function(){
 	Route::get('/', function(){
-		return view('user');
+		return view('home');
 	});
 });
 

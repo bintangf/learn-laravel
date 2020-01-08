@@ -2,12 +2,13 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
-                <div class="panel-body">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header text-center">
+                  <h3>List User</h3>
+                </div>
+                <div class="card-body text-center">
                     <div class="alert alert-success">
                         <p>
                             Selamat Datang di halaman Admin Auplas
