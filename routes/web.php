@@ -4,6 +4,9 @@ Route::get('/', function () {
     return view('home');
 });
 
+Auth::routes();
+Auth::routes(['verify' => true]);
+
 // Route untuk user yang admin
 Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin']], function(){
 	Route::get('/', function(){
@@ -19,15 +22,12 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth','role:user']], functio
 	});
 });
 
-Auth::routes();
-Auth::routes(['verify' => true]);
-
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('about', 'PagesController@about');
 
-Route::get('/contact', 'TicketsController@create');
+Route::get('/contact', 'TicketsController@create')->middleware('verified');
 Route::post('/contact', 'TicketsController@store');
-Route::get('/order', 'TicketsController@index');
+Route::get('/order', 'TicketsController@index')->middleware('verified');
 Route::get('/order/{slug?}', 'TicketsController@show');
 Route::get('/order/{slug?}/edit','TicketsController@edit');
 Route::post('/order/{slug?}/edit','TicketsController@update');
